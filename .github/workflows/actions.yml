@@ -15,12 +15,7 @@ jobs:
       - name: install python packages
         run: |
           python -m pip install --upgrade pip
-          pip install -r requests
-          pip install -r bs4
-          pip install -r googletrans
-          pip install -r datetime
-          pip install -r dateparser
-
+          pip install -r requirements.txt      
       - name: execute py script # run main.py
         run: python scrapShakingColors.py
           

@@ -1,5 +1,4 @@
-requests
-bs4
-googletrans
-datetime
-dateparser
+beautifulsoup4==4.11.1
+dateparser==1.1.8
+googletrans==4.0.0rc1
+requests==2.25.1
