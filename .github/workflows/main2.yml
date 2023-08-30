@@ -20,4 +20,4 @@ jobs:
           pip install googletrans    
           pip install requests    
       - name: execute py script # run main.py
-        run: python scrapShakingColors/scrapShakingColors.py
+        run: python ./scrapShakingColors.py
