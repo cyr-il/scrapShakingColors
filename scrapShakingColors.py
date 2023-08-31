@@ -5,6 +5,7 @@ from datetime import datetime
 import dateparser
 import time
 import dotenv
+import os
 from discord_webhook import DiscordWebhook
 
 
@@ -15,7 +16,7 @@ url = "https://www.shakingcolors.com/"
 dotenv.load_dotenv(".env")
 
 # Accéder à la variable d'environnement WEBHOOK_URL
-webhook_url = dotenv.getenv("WEBHOOK_URL")
+webhook_url = os.getenv("WEBHOOK_URL")
 
 most_recent_date = datetime.min
 
