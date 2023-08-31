@@ -4,10 +4,17 @@ from googletrans import Translator
 from datetime import datetime
 import dateparser
 import time
-import discord
+import dotenv
+from discord_webhook import DiscordWebhook
+
 
 # Make a GET request to the webpage
 url = "https://www.shakingcolors.com/"
+
+config = dotenv.dotenv_values(".env")
+
+# URL du webhook Discord
+webhook_url = config['WEBHOOK_URL']
 
 most_recent_date = datetime.min
 
@@ -62,6 +69,15 @@ while True :
         with open("translated_article.txt", "w", encoding="utf-8") as file:
             file.write(translated_article.text)
         print("translated article written to file")
+        
+        # Read the content of the file
+        with open("translated_article.txt", "r", encoding="utf-8") as file:
+            file_content = file.read()
+
+        # Send a Discord notification using the webhook and include the file content
+        webhook = DiscordWebhook(url=webhook_url, content=f"New article found published on {most_recent_date}")
+        webhook.add_file(file=bytes(file_content, "utf-8"), filename="translated_article.txt")
+        webhook.execute()
 
     else:
         print("No new article found today. The last article was published on ", most_recent_date)
