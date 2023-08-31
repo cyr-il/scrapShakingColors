@@ -73,12 +73,12 @@ while True :
         print("translated article written to file")
         
         # Read the content of the file
-        with open("translated_article.txt", "r", encoding="utf-8") as file:
-            file_content = file.read()
+        #with open("translated_article.txt", "r", encoding="utf-8") as file:
+            #file_content = file.read()
 
         # Send a Discord notification using the webhook and include the file content
         webhook = DiscordWebhook(url=webhook_url, content=f"New article found published on {most_recent_date}")
-        webhook.add_file(file=bytes(file_content, "utf-8"), filename="translated_article.txt")
+        #webhook.add_file(file=bytes(file_content, "utf-8"), filename="translated_article.txt")
         webhook.execute()
 
     else:
