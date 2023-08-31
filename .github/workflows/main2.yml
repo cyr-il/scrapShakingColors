@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '* * * * *' # At 00:00 on Monday
 
+env:
+  WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
