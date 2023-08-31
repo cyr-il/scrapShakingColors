@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from googletrans import Translator
+from translate import Translator
 from datetime import datetime
 import dateparser
 
@@ -44,8 +44,8 @@ full_article_content = full_article_soup.find("div", class_="single-post__body")
 article_content = str(full_article_content)
 
 # Translate the article to French using googletrans
-translator = Translator()
-translated_article = translator.translate(article_content, dest='fr')
+translator = Translator(to_lang="fr")
+translated_article = translator.translate(article_content)
 
 # Write the translated article to a file
 with open("translated_article.txt", "w") as file:
