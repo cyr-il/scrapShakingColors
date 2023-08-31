@@ -49,4 +49,4 @@ translated_article = translator.translate(article_content)
 
 # Write the translated article to a file
 with open("translated_article.txt", "w") as file:
-    file.write(translated_article.text)
+    file.write(translated_article)
