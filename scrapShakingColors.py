@@ -11,10 +11,11 @@ from discord_webhook import DiscordWebhook
 # Make a GET request to the webpage
 url = "https://www.shakingcolors.com/"
 
-config = dotenv.dotenv_values(".env")
+# Charger les variables d'environnement à partir du fichier .env
+dotenv.load_dotenv(".env")
 
-# URL du webhook Discord
-webhook_url = config['WEBHOOK_URL']
+# Accéder à la variable d'environnement WEBHOOK_URL
+webhook_url = dotenv.getenv("WEBHOOK_URL")
 
 most_recent_date = datetime.min
 
