@@ -8,6 +8,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content to github runner
       - name: setup python
         uses: actions/setup-python@v4
         with:
@@ -20,4 +22,4 @@ jobs:
           pip install googletrans    
           pip install requests    
       - name: execute py script # run main.py
-        run: python scrapShakingColors/scrapShakingColors.py
+        run: python scrapShakingColors.py
