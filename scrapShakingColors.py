@@ -84,4 +84,3 @@ while True :
     else:
         print("No new article found today. The last article was published on ", most_recent_date)
         
-    time.sleep(3600)
